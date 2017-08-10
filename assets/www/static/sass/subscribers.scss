@@ -1,0 +1,98 @@
+div[data-page='subscribers'] {
+    .navbar {
+        .center {
+            //padding-right: 52px;
+        }
+    }
+    
+}
+.subscribers {
+    &.editable-subnavbar {
+        .page-content {
+            padding-top: 54px !important;
+        }
+        .content-block {
+            border-top: 2px solid #C7C7C7;
+        }
+    }
+    background: #eaeaea !important;
+    .subnavbar {
+        padding: 0;
+        background: #eaeaea;
+        height: 65px !important;
+        border-bottom: 2px solid #cfcfcf;
+        box-shadow: none !important;
+    }
+    .watch_profile.fb-auth {
+        height: 45px;
+        background-color: #eaeaea;
+        border: solid 2px #414141;
+        color: #414141;
+        width: 194px;
+        margin: -19px auto;
+        font-family: FuturaPT-Medium;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 16px;
+        line-height: 44px;
+        border-radius: 25px;
+        box-shadow: none !important;
+    }
+    .content-block  {
+        .user-item {
+            &.is-new {
+                background: #fdd3d4;
+            }
+        }
+        .user-item .user-image {
+            position: relative;
+        }
+    }
+    .content-block.editable {
+        margin-top: 16px !important;
+        border-top: 2px solid #cfcfcf;
+    }
+    .close-block {
+        width: 116px;
+        height: 116px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        &:after {
+            content: ' ';
+            width: 116px;
+            height: 116px;
+            border-radius: 50%;
+            background-color: #ccc;
+            position:absolute;
+            top:0;
+            left:0;
+            opacity:0.3;
+        }
+        &__cross {
+            position: absolute;
+            right: 45px;
+            top: 41px;
+            width: 32px;
+            height: 32px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        &__cross:before, &__cross:after {
+            position: absolute;
+            left: 15px;
+            content: ' ';
+            height: 35px;
+            width: 7px;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        &__cross:before {
+            transform: rotate(45deg);
+        }
+        &__cross:after {
+            transform: rotate(-45deg);
+        }
+    }
+}

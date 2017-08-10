@@ -1,0 +1,102 @@
+.profile.edit {
+    .watch_profile.fb-auth {
+        background-color: #eaeaea;
+        border: solid 2px #414141;
+        color: #414141;
+        width: 269px;
+        margin: -19px auto;
+        font-family: FuturaPT-Medium;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+        line-height: 50px;
+        box-shadow: none !important;
+    }
+    .watch_profile_title {
+        font-family: FuturaPT-Book;
+        line-height: 1.38;
+        text-align: center;
+        color: #414141 !important;
+        font-size: 16px;
+    }
+    .textarea-validator {
+       color: #999;
+        font-size: 10px;
+        margin-left: 8px;
+    }
+    li.date-of-birthd {
+        border-bottom: none !important;
+    }
+    .location-item.link {
+        color: #414141;
+    }
+    .inputs-list li {
+        border-color: #fff !important;
+    }
+    .custom-search_usercity {
+        .autocomplate-list {
+            height: auto;
+            position: relative;
+            padding-top: 0!important;
+            .item-inner {
+                line-height: 100%;
+                padding-top: 6px !important;
+                padding-bottom: 0 !important;
+            }
+        }
+    }
+    .location-select {
+        input::-webkit-input-placeholder {
+            color: lightgray;
+        }
+        a {
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .custom-search__cancel {
+        right: 0;
+        background-color: #1b1d1c;
+        z-index: 99;
+        top: auto;
+        bottom: -42px;
+    }
+}
+
+.settings-notification {
+    .title {
+        .item-title {
+            color: white;
+            width: 100%;
+            text-transform: uppercase;
+        }
+    }
+    .switchline {
+        .item-title {
+            width: 80%;
+            float: left;
+            color: white;
+        }
+        .vue-switcher {
+            float: right;
+            margin-top: 15px;
+        }
+        .item-inner {
+            padding-right: 0;
+            margin-right: 20px;
+            border-bottom: 2px solid #d54a4e;
+        }
+        &:nth-child(2) {
+            .item-inner {
+                border-top: 2px solid #d54a4e;
+            }
+        }
+        .vue-switcher-theme--bulma.vue-switcher-color--default.vue-switcher--unchecked div,
+        .vue-switcher-theme--bulma.vue-switcher-color--default div {
+            background-color: transparent;
+            border: 1px solid white;
+        }
+    }
+}
