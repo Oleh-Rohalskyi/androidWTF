@@ -84,22 +84,22 @@ html.is-light {
                     }
                 }
                 .place-info {
+                    font-family: FuturaPT-Medium;
                     border: 0;
-                    &:after {
-                        background: rgba(255, 255, 255, 0.64);
-                    }
+                    // &:after {
+                    //     // background: rgba(255, 255, 255, 0.64);
+                    // }
                     .left {
-                        color: black;
-                        letter-spacing: 1px;
+                         color: white;
                         .bottom-text {
                             .data {
-                                color: black;
+                                color: white;
                             }
                         }
                     }
-                    .right {
-                        color: black;
-                    }
+                    // .right {
+                    //     color: black;
+                    // }
                 }
             }
         }
@@ -171,6 +171,11 @@ html.is-light {
     &.ios {
         .navbar:before {
             background: #eaeaea;
+        }
+        .popup {
+            .navbar:before {
+                background: white;
+            }
         }
     }
 }

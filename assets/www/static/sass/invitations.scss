@@ -12,7 +12,7 @@ $invitationsBg: #ae3b40;
     .subnavbar {
         box-shadow: none;
         background: $invitationsBg;
-        height: 60px;
+        height: 75px;
     }
     .page-content {
         padding-top: 132px !important;
@@ -164,7 +164,7 @@ $invitationsBg: #ae3b40;
             font-size: 100%;
             text-transform: none;
             display: inline-block;
-            width: 110px;
+            width: 130px;
             height: 36px;
             line-height: 33px;
             border: 2px solid white;
@@ -173,6 +173,7 @@ $invitationsBg: #ae3b40;
             border-radius: 20px 0 0 20px;
             position: relative;
             box-shadow: none;
+            font-family: FuturaPT-Book;
             &.active {
                 color: $invitationsBg;
             }

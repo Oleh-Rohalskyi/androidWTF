@@ -71,6 +71,7 @@
             color: white;
             width: 100%;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
     }
     .switchline {
@@ -97,6 +98,28 @@
         .vue-switcher-theme--bulma.vue-switcher-color--default div {
             background-color: transparent;
             border: 1px solid white;
+        }
+    }
+    form {
+        .select {
+            width: 100%;
+            select {
+                color: white;
+            }
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 1px;
+                background: white;
+                transform: rotate(45deg);
+                top: 25px;
+                right: 10px;
+            }
+            &:after {
+                transform: rotate(-45deg);
+                right: 0;
+            }
         }
     }
 }

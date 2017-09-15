@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/oleh/Documents/www/namnam/platforms/android/CordovaLib/assets"/><source path="/home/oleh/Documents/www/namnam/platforms/android/CordovaLib/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/home/oleh/Documents/www/namnam/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\frontnam\platforms\android\CordovaLib\assets"/><source path="C:\frontnam\platforms\android\CordovaLib\build\generated\assets\shaders\release"/></dataSet><dataSet config="release"><source path="C:\frontnam\platforms\android\CordovaLib\src\release\assets"/></dataSet></merger>

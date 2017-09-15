@@ -37,7 +37,13 @@ $dotSizeAddition: 16px;
         }
     }
 }
+
 .range-slider {
+    &.bill-slider {
+        .vue-slider-wrap {
+            padding-left: 0 !important;
+        }
+    }
     .vue-slider-dot {
         width: 80px !important;
         height: 60px !important;
@@ -185,8 +191,9 @@ $dotSizeAddition: 16px;
                         width: 24px;
                         height: 24px;
                         position: absolute;
-                        left: 10px;
-                        top: -5px;
+                        left: 16px;
+                        transform: scale(0.7);
+                        top: -3px;
                         background: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNMTIgMkM4LjEzIDIgNSA1LjEzIDUgOWMwIDUuMjUgNyAxMyA3IDEzczctNy43NSA3LTEzYzAtMy44Ny0zLjEzLTctNy03em0wIDkuNWMtMS4zOCAwLTIuNS0xLjEyLTIuNS0yLjVzMS4xMi0yLjUgMi41LTIuNSAyLjUgMS4xMiAyLjUgMi41LTEuMTIgMi41LTIuNSAyLjV6Ii8+CiAgICA8cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==');
                     }
                 }
@@ -222,7 +229,6 @@ $dotSizeAddition: 16px;
             .item-content {
                 padding-left: 0;
                 font-weight: bold;
-                letter-spacing: 1px;
                 margin-left: -14px;
             }
             &.is-active {

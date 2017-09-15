@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.namnam" version="0.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.solutions.namnam" version="0.8.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Permissions">
         <param name="android-package" value="com.android.plugins.Permissions" />
     </feature>
+    <feature name="AppVersion">
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
+    </feature>
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="DatePickerPlugin">
+        <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
     </feature>
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
@@ -46,8 +52,8 @@
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
-    <feature name="AppVersion">
-        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
+    <feature name="ThemeableBrowser">
+        <param name="android-package" value="com.initialxy.cordova.themeablebrowser.ThemeableBrowser" />
     </feature>
     <hook src="hooks/hookers.js" type="before_prepare" />
     <hook src="hooks/beforedep.js" type="before_deploy" />
@@ -75,7 +81,6 @@
     <icon density="xhdpi" src="res/android/mipmap-xhdpi/icon.png" />
     <icon density="xxhdpi" src="res/android/mipmap-xxhdpi/icon.png" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="DisallowOverscroll" value="true" />
     <preference name="pods_ios_min_version" value="8.0" />
     <preference name="pods_use_frameworks" value="true" />
     <preference name="ShowSplashScreen" value="true" />
@@ -84,4 +89,6 @@
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="FadeSplashScreen" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientation" value="portrait" />
 </widget>

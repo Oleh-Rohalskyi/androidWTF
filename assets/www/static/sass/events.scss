@@ -1,0 +1,103 @@
+.event-card {
+    height: 160px !important;
+    background: $maincolor;
+    .item-content {
+        background: rgba(255, 255, 255, 0.9) !important;
+        .card-top {
+            width: 65% !important;
+            color: black;
+            .name {
+                letter-spacing: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .address {
+                letter-spacing: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                &.first-line {
+                    margin-top: 4px;
+                }
+                &.second-line {
+                    margin-top: -6px;
+                }
+            }
+        }
+        .card-bottom {
+            width: 65% !important;
+            bottom: -12px !important;
+            color: black;
+            .radio-block {
+                div {
+                    font-size: 120%;
+                }
+            }
+        }
+        .right {
+            height: 157px;
+            width: 105px;
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            text-align: right;
+            overflow: hidden;
+            img {
+                height: 157px;
+            }
+        }
+    }
+}
+g#titles {
+    pointer-events: none;
+    touch-action: none;
+}
+
+#curves {
+    display: none;
+}
+.event-scheme {
+ g {    
+      fill: #505050;
+      & circle {
+          fill: inherit !important;
+      }
+      &[data-color='0'] {
+        fill: #375fe8;
+      }
+      &[data-color='1'] {
+        fill: #60bbe5;
+      }
+      &[data-color='2'] {
+        fill: #61bf83;
+      }
+      &[data-color='3'] {
+        fill: #9ed36f;
+      }
+      &[data-color='4'] {
+        fill: #e2e535;
+      }
+      &[data-color='5'] {
+        fill: #ef7925;
+      }
+      &[data-color='6'] {
+        fill: #e54b4b;
+      }
+      &[data-color='7'] {
+        fill: #ef3e91;
+      }
+      &[data-status='1'] {
+        fill: #505050 !important;
+      }
+ }
+}
+
+.svg-scheme, .svg-scheme-deeper {
+    touch-action: inherit !important;
+    transition: 100ms all;
+    svg {
+        width: 100%;
+        height: calc(100vh - 70px);
+    }
+}

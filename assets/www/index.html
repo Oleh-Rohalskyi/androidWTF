@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class=is-light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=translucent><title>NamNam</title><link rel=stylesheet href=https://unpkg.com/mint-ui/lib/style.css><link href=styles.css rel=stylesheet></head><body><script src=cordova.js></script><script>window.fbAsyncInit = function () {
+<!DOCTYPE html><html class=is-light><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=translucent><title>NamNam</title><link rel=stylesheet href=https://unpkg.com/mint-ui/lib/style.css><script async custom-element=amp-analytics src=https://cdn.ampproject.org/v0/amp-analytics-0.1.js></script><link href=styles.css rel=stylesheet></head><body><script src=cordova.js></script><amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5SLBFZX&gtm.url=SOURCE_URL" data-credentials=include></amp-analytics><script>window.fbAsyncInit = function () {
       FB.init({
         appId: 306529636471435,
         autoLogAppEvents: true,
@@ -17,4 +17,11 @@
       js.id = id;
       js.src = "//connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script><div id=app></div><script src=d3176d60560e76cd7786.main.js></script></body></html>
+    }(document, 'script', 'facebook-jssdk'));
+        
+    function setNotification(value) {
+      localStorage.setItem('notificationData', JSON.stringify(value))
+    }
+    function setDeviceToken(value) {
+      localStorage.setItem('deviceToken', value)
+    }</script><div id=app></div><script src=62643704163b099547f8.main.js></script></body></html>

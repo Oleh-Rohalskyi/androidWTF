@@ -9,6 +9,14 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-plugin-app-version.AppVersionPlugin",
+        "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+        "pluginId": "cordova-plugin-app-version",
+        "clobbers": [
+            "cordova.getAppVersion"
+        ]
+    },
+    {
         "id": "cordova-plugin-camera.Camera",
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "pluginId": "cordova-plugin-camera",
@@ -38,6 +46,14 @@ module.exports = [
         "pluginId": "cordova-plugin-camera",
         "clobbers": [
             "CameraPopoverHandle"
+        ]
+    },
+    {
+        "id": "cordova-plugin-datepicker.DatePicker",
+        "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
+        "pluginId": "cordova-plugin-datepicker",
+        "clobbers": [
+            "datePicker"
         ]
     },
     {
@@ -325,11 +341,11 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-app-version.AppVersionPlugin",
-        "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
-        "pluginId": "cordova-plugin-app-version",
+        "id": "cordova-plugin-themeablebrowser.themeablebrowser",
+        "file": "plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js",
+        "pluginId": "cordova-plugin-themeablebrowser",
         "clobbers": [
-            "cordova.getAppVersion"
+            "cordova.ThemeableBrowser"
         ]
     }
 ];
@@ -337,9 +353,11 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-android-permissions": "1.0.0",
+    "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-console": "1.0.7",
+    "cordova-plugin-datepicker": "0.9.3",
     "cordova-plugin-device": "1.1.6",
     "cordova-plugin-dialogs": "1.3.3",
     "cordova-plugin-file": "4.3.3",
@@ -352,7 +370,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.3.3-dev",
     "es6-promise-plugin": "4.1.0",
     "cordova-plugin-x-socialsharing": "5.1.8",
-    "cordova-plugin-app-version": "0.1.9"
+    "cordova-plugin-themeablebrowser": "0.2.17"
 };
 // BOTTOM OF METADATA
 });

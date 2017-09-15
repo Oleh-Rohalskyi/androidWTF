@@ -18,12 +18,15 @@ div[data-page='my-meetings'] {
     .page-content {
         padding-top: 132px !important;
         background: $meetingsBg;
+        .pull-to-refresh-arrow {
+            display: none;
+        }
         .tab {
             position: relative;
             min-height: calc(100vh - 152px);
             li {
                 background: none;
-                height: $meetSize;
+                height: $meetSize + 20px;
                 margin-bottom: 50px;
                 .item-content {
                     background: none;
@@ -129,6 +132,7 @@ div[data-page='my-meetings'] {
             border-radius: 20px 0 0 20px;
             position: relative;
             box-shadow: none;
+            font-family: FuturaPT-Book;
             &.active {
                 color: white;
             }

@@ -13,7 +13,15 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"DatePickerPlugin\"><param name=\"android-package\" value=\"com.plugin.datepicker.DatePickerPlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -69,7 +77,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
+                            "xml": "<feature name=\"ThemeableBrowser\"><param name=\"android-package\" value=\"com.initialxy.cordova.themeablebrowser.ThemeableBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -116,65 +124,66 @@
                         }
                     ]
                 }
-            },
-            "res/values/strings.xml": {
-                "parents": {
-                    "/resources": []
-                }
             }
         }
     },
     "installed_plugins": {
         "cordova-plugin-android-permissions": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-photo-library": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "es6-promise-plugin": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
+            "PACKAGE_NAME": "com.solutions.namnam"
         },
         "cordova-plugin-app-version": {
-            "PACKAGE_NAME": "com.phonegap.namnam"
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-photo-library": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.solutions.namnam"
+        },
+        "cordova-plugin-themeablebrowser": {
+            "PACKAGE_NAME": "com.solutions.namnam"
         }
     },
     "dependent_plugins": {},
@@ -185,6 +194,14 @@
             "pluginId": "cordova-plugin-android-permissions",
             "clobbers": [
                 "cordova.plugins.permissions"
+            ]
+        },
+        {
+            "id": "cordova-plugin-app-version.AppVersionPlugin",
+            "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+            "pluginId": "cordova-plugin-app-version",
+            "clobbers": [
+                "cordova.getAppVersion"
             ]
         },
         {
@@ -217,6 +234,14 @@
             "pluginId": "cordova-plugin-camera",
             "clobbers": [
                 "CameraPopoverHandle"
+            ]
+        },
+        {
+            "id": "cordova-plugin-datepicker.DatePicker",
+            "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
+            "pluginId": "cordova-plugin-datepicker",
+            "clobbers": [
+                "datePicker"
             ]
         },
         {
@@ -504,19 +529,21 @@
             ]
         },
         {
-            "id": "cordova-plugin-app-version.AppVersionPlugin",
-            "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
-            "pluginId": "cordova-plugin-app-version",
+            "id": "cordova-plugin-themeablebrowser.themeablebrowser",
+            "file": "plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js",
+            "pluginId": "cordova-plugin-themeablebrowser",
             "clobbers": [
-                "cordova.getAppVersion"
+                "cordova.ThemeableBrowser"
             ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-android-permissions": "1.0.0",
+        "cordova-plugin-app-version": "0.1.9",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-camera": "2.4.1",
         "cordova-plugin-console": "1.0.7",
+        "cordova-plugin-datepicker": "0.9.3",
         "cordova-plugin-device": "1.1.6",
         "cordova-plugin-dialogs": "1.3.3",
         "cordova-plugin-file": "4.3.3",
@@ -529,6 +556,6 @@
         "cordova-plugin-whitelist": "1.3.3-dev",
         "es6-promise-plugin": "4.1.0",
         "cordova-plugin-x-socialsharing": "5.1.8",
-        "cordova-plugin-app-version": "0.1.9"
+        "cordova-plugin-themeablebrowser": "0.2.17"
     }
 }
