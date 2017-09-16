@@ -3,4 +3,6 @@
     <string name="app_name">NamNam</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
+
+    <string name="pusher_api_key">AIzaSyDO5zcMSWaZwb_c0xV65y2cMdWsmewkpKg</string>
 </resources>
