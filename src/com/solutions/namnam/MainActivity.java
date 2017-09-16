@@ -19,7 +19,11 @@
 
 package com.solutions.namnam;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,27 +36,25 @@ import com.pusher.android.notifications.ManifestValidator;
 import com.pusher.android.notifications.PushNotificationRegistration;
 import com.pusher.android.notifications.gcm.GCMPushNotificationReceivedListener;
 import com.pusher.android.notifications.tokens.PushNotificationRegistrationListener;
+import com.solutions.namnam.helpers.JsStrings;
 
-import com.pusher.client.Pusher;
-import com.pusher.client.PusherOptions;
-import com.pusher.client.channel.Channel;
-import com.pusher.client.channel.SubscriptionEventListener;
+import org.apache.cordova.CordovaActivity;
 
-import android.provider.Settings.Secure;
+public class MainActivity extends CordovaActivity implements PushNotificationRegistrationListener, GCMPushNotificationReceivedListener, Runnable {
 
-import org.apache.cordova.*;
-
-public class MainActivity extends CordovaActivity implements PushNotificationRegistrationListener
-{
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final String TAG = "yourtag";
+    private static final String TAG = "namnamtag";
 
+    private static final int DOUBLE_BACK_PRESS_TIME = 1500;
     private static final String PROJECT_NUMBER = "420408569314";
     private static final String PUSHER_API_KEY = "b7fb078abcfaa701ca9c";
 
+    private boolean doubleBackToExitPressedOnce = false;
     private PushNotificationRegistration nativePusher;
-
+    private JsStrings jsStrings;
     private String deviceToken;
+
+    private Handler h = new Handler();
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -60,23 +62,74 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
         super.onCreate(savedInstanceState);
 
         // enable Cordova apps to be started in the background
-        Bundle extras = getIntent().getExtras();
+
+        final Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        deviceToken = getDeviceToken();
+
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
             moveTaskToBack(true);
         }
 
-        deviceToken = getDeviceToken();
-
-//        listenToPusherChannel();
-        listenToPusher();
-        // Set by <content src="index.html" /> in config.xml
+        // set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
 
-        String jsSetToken = String.format("javascript: document.addEventListener('deviceready', function() { setDeviceToken('%s'); });", deviceToken);
+        // connect and subscribe to Pusher interest
+        listenToPusher();
 
-        this.appView.loadUrl(jsSetToken);
+        // setup JsString to interact with the app
+        jsStrings = new JsStrings(appView);
+
+        // start listening for the app url to be loaded
+        h.postDelayed(this, 500);
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, R.string.press_back_to_exit, Toast.LENGTH_SHORT).show();
+
+        h.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, DOUBLE_BACK_PRESS_TIME);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        injectDataToDocument();
+    }
+
+    private void injectDataToDocument() {
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        Uri uri = intent.getData();
+
+        // pass device token via deviceready event
+        jsStrings.deviceToken(deviceToken, true);
+
+        // check and send deep linking data
+        jsStrings.deepLinking(uri, true);
+
+        // check and send notification data
+        jsStrings.notification(extras, true);
+    }
     private void listenToPusher() {
         if (playServicesAvailable()) {
             PusherAndroid pusher = new PusherAndroid(PUSHER_API_KEY);
@@ -111,45 +164,37 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
     @Override
     public void onSuccessfulRegistration() {
-        String token = getDeviceToken();
-        Toast.makeText(this, token, Toast.LENGTH_LONG).show();
-        nativePusher.subscribe(token);
-        nativePusher.setGCMListener(new GCMPushNotificationReceivedListener() {
-            @Override
-            public void onMessageReceived(String from, Bundle data) {
-                // do something magical 🔮
-                String message = data.getBundle("notification").getString("body");
-                String meta = data.getString("meta");
-                Log.d(TAG, "Received push notification from: " + from);
+        Toast.makeText(this, deviceToken, Toast.LENGTH_LONG).show();
+        nativePusher.subscribe(deviceToken);
+//        nativePusher.setGCMListener(this);
+    }
 
-                Log.d(TAG, "Message: " + message);
-                Log.d(TAG, "Meta: " + meta);
-            }
-        });
+    @Override
+    public void onMessageReceived(String from, Bundle data) {
+        // do something magical 🔮
+        String message = data.getBundle("notification").getString("body");
+        String extraData = data.getString("data");
+        Log.d(TAG, "Received push notification from: " + from);
+
+        Log.d(TAG, "Message: " + message);
+        Log.d(TAG, "Data: " + extraData);
     }
 
     @Override
     public void onFailedRegistration(int statusCode, String response) {
-        System.out.println(
-                "A real sad day. Registration failed with code " + statusCode +
-                        " " + response
-        );
+        Log.e(TAG, "A real sad day. Registration failed with code " + statusCode +
+                        " " + response);
     }
 
     private String getDeviceToken() {
-        try {
-            InstanceID instanceID = InstanceID.getInstance(this);
+        return Settings.Secure.getString(
+                getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID
+        );
+    }
 
-            String token = instanceID.getToken(PROJECT_NUMBER,
-                    GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
-
-            Log.i(TAG, "GCM Registration Token: " + token);
-
-            return token;
-        }catch (Exception e) {
-            Log.d(TAG, "Failed to complete token refresh", e);
-        }
-
-        return "11111";
+    @Override
+    public void run() {
+        injectDataToDocument();
     }
 }

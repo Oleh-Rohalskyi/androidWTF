@@ -252,8 +252,6 @@ dependencies {
     compile "com.android.support:support-v4:24.1.1+"
     compile 'com.google.android.gms:play-services-gcm:9.8.0'
     compile 'com.pusher:pusher-websocket-android:0.5.0'
-
-    compile 'com.pusher:pusher-java-client:1.5.0'
     // SUB-PROJECT DEPENDENCIES END
 }
 

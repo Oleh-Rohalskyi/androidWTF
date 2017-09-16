@@ -8,6 +8,15 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter android:label="@string/namnam_filter">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "namnam://” -->
+                <data android:scheme="namnam" />
+            </intent-filter>
+
         </activity>
         <provider android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths" />
