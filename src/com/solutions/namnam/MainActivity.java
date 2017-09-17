@@ -179,9 +179,12 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
     @Override
     public void onSuccessfulRegistration() {
-        Toast.makeText(this, deviceToken, Toast.LENGTH_LONG).show();
+
+        // show device id if needed
+//        Toast.makeText(this, deviceToken, Toast.LENGTH_LONG).show();
+        Log.i(TAG, "device token: " + deviceToken);
+
         nativePusher.subscribe(deviceToken);
-//        nativePusher.setGCMListener(this);
     }
 
     @Override
