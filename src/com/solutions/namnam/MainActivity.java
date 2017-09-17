@@ -54,6 +54,8 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
     private JsStrings jsStrings;
     private String deviceToken;
 
+    private Intent nextIntent;
+
     private Handler h = new Handler();
 
     @Override
@@ -66,6 +68,7 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
         final Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
+        nextIntent = intent;
         deviceToken = getDeviceToken();
 
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
@@ -88,7 +91,7 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        setIntent(intent);
+        nextIntent = intent;
     }
 
     @Override
@@ -117,9 +120,10 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
     }
 
     private void injectDataToDocument() {
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        Uri uri = intent.getData();
+        if (nextIntent == null) return;
+
+        Bundle extras = nextIntent.getExtras();
+        Uri uri = nextIntent.getData();
 
         // pass device token via deviceready event
         jsStrings.deviceToken(deviceToken, true);
@@ -129,6 +133,9 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
         // check and send notification data
         jsStrings.notification(extras, true);
+
+        // clear intent not to be triggered next time
+        nextIntent = null;
     }
     private void listenToPusher() {
         if (playServicesAvailable()) {
