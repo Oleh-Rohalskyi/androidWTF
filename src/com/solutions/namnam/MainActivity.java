@@ -120,6 +120,8 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
     @Override
     protected void onPause() {
         super.onPause();
+
+        // remove intent so that it won't be handled twice
         nextIntent = null;
     }
 
