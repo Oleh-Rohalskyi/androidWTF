@@ -41,10 +41,14 @@ import org.apache.cordova.CordovaActivity;
 public class MainActivity extends CordovaActivity implements PushNotificationRegistrationListener, GCMPushNotificationReceivedListener, Runnable {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    // debug tag
     private static final String TAG = "namnamtag";
 
+    // within this time one can exit by clicking back button
     private static final int DOUBLE_BACK_PRESS_TIME = 1500;
+    // from google-services.json
     private static final String PROJECT_NUMBER = "420408569314";
+    // from dashboard.pusher.com
     private static final String PUSHER_API_KEY = "b7fb078abcfaa701ca9c";
 
     private boolean doubleBackToExitPressedOnce = false;
