@@ -29,8 +29,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.iid.InstanceID;
 import com.pusher.android.PusherAndroid;
 import com.pusher.android.notifications.ManifestValidator;
 import com.pusher.android.notifications.PushNotificationRegistration;
@@ -119,6 +117,12 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
         injectDataToDocument();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        nextIntent = null;
+    }
+
     private void injectDataToDocument() {
         if (nextIntent == null) return;
 
@@ -133,10 +137,8 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
         // check and send notification data
         jsStrings.notification(extras, true);
-
-        // clear intent not to be triggered next time
-        nextIntent = null;
     }
+
     private void listenToPusher() {
         if (playServicesAvailable()) {
             PusherAndroid pusher = new PusherAndroid(PUSHER_API_KEY);
