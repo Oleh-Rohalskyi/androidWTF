@@ -46,10 +46,6 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
     // within this time one can exit by clicking back button
     private static final int DOUBLE_BACK_PRESS_TIME = 1500;
-    // from google-services.json
-    private static final String PROJECT_NUMBER = "420408569314";
-    // from dashboard.pusher.com
-    private static final String PUSHER_API_KEY = "b7fb078abcfaa701ca9c";
 
     private boolean doubleBackToExitPressedOnce = false;
     private PushNotificationRegistration nativePusher;
@@ -147,10 +143,10 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
 
     private void listenToPusher() {
         if (playServicesAvailable()) {
-            PusherAndroid pusher = new PusherAndroid(PUSHER_API_KEY);
+            PusherAndroid pusher = new PusherAndroid(getString(R.string.pusher_api_key));
             nativePusher = pusher.nativePusher();
             try {
-                nativePusher.registerGCM(this, PROJECT_NUMBER, this);
+                nativePusher.registerGCM(this, getString(R.string.project_number), this);
             } catch (ManifestValidator.InvalidManifestException e) {
                 Log.e(TAG, "Error trying to register within GCM");
                 Log.e(TAG, e.getStackTrace().toString());
