@@ -3,4 +3,10 @@
     <string name="app_name">NamNam</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
+
+    <string name="namnam_filter">namnam_filter</string>
+    <string name="press_back_to_exit">Please click BACK again to exit</string>
+
+    <!-- from dashboard.pusher.com -->
+    <string name="pusher_api_key">beb69ae5811b36838867</string>
 </resources>

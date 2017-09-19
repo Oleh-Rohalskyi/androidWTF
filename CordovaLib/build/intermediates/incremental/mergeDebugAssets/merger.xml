@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\frontnam\platforms\android\CordovaLib\assets"/><source path="C:\frontnam\platforms\android\CordovaLib\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\frontnam\platforms\android\CordovaLib\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/max/AndroidStudioProjects/androidWTF/CordovaLib/assets"/><source path="/home/max/AndroidStudioProjects/androidWTF/CordovaLib/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/max/AndroidStudioProjects/androidWTF/CordovaLib/src/debug/assets"/></dataSet></merger>

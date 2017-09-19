@@ -20,10 +20,13 @@
 package com.phonegap.namnam;
 
 import android.os.Bundle;
+
 import org.apache.cordova.*;
 
 public class MainActivity extends CordovaActivity
 {
+// DEPRECATED
+// USE com.solutions.namnam INSTEAD
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
