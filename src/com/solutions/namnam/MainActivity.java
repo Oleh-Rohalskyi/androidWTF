@@ -28,7 +28,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.pusher.android.PusherAndroid;
 import com.pusher.android.notifications.ManifestValidator;
 import com.pusher.android.notifications.PushNotificationRegistration;
@@ -142,36 +143,32 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
     }
 
     private void listenToPusher() {
-        if (playServicesAvailable()) {
-            PusherAndroid pusher = new PusherAndroid(getString(R.string.pusher_api_key));
-            nativePusher = pusher.nativePusher();
-            try {
-                nativePusher.registerGCM(this, getString(R.string.project_number), this);
-            } catch (ManifestValidator.InvalidManifestException e) {
-                Log.e(TAG, "Error trying to register within GCM");
-                Log.e(TAG, e.getStackTrace().toString());
-            }
-        } else {
-            Log.e(TAG, "Error: Play Services are not available");
+        PusherAndroid pusher = new PusherAndroid(getString(R.string.pusher_api_key));
+        nativePusher = pusher.nativePusher();
+        try {
+            nativePusher.registerFCM(this);
+        } catch (ManifestValidator.InvalidManifestException e) {
+            Log.e(TAG, "Error trying to register within GCM");
+            Log.e(TAG, e.getStackTrace().toString());
         }
     }
 
-    private boolean playServicesAvailable()
-    {
-        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (apiAvailability.isUserResolvableError(resultCode)) {
-                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-                        .show();
-            } else {
-                Log.i(TAG, "This device is not supported.");
-                finish();
-            }
-            return false;
-        }
-        return true;
-    }
+//    private boolean playServicesAvailable()
+//    {
+//        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+//        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+//        if (resultCode != ConnectionResult.SUCCESS) {
+//            if (apiAvailability.isUserResolvableError(resultCode)) {
+//                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+//                        .show();
+//            } else {
+//                Log.i(TAG, "This device is not supported.");
+//                finish();
+//            }
+//            return false;
+//        }
+//        return true;
+//    }
 
     @Override
     public void onSuccessfulRegistration() {
