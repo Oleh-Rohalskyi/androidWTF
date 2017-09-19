@@ -7,8 +7,6 @@
     <string name="namnam_filter">namnam_filter</string>
     <string name="press_back_to_exit">Please click BACK again to exit</string>
 
-    <!-- from google-services.json -->
-    <string name="project_number">420408569314</string>
     <!-- from dashboard.pusher.com -->
-    <string name="pusher_api_key">b7fb078abcfaa701ca9c</string>
+    <string name="pusher_api_key">beb69ae5811b36838867</string>
 </resources>
