@@ -146,7 +146,7 @@ public class MainActivity extends CordovaActivity implements PushNotificationReg
         PusherAndroid pusher = new PusherAndroid(getString(R.string.pusher_api_key));
         nativePusher = pusher.nativePusher();
         try {
-            nativePusher.registerFCM(this);
+            nativePusher.registerFCM(this, this);
         } catch (ManifestValidator.InvalidManifestException e) {
             Log.e(TAG, "Error trying to register within GCM");
             Log.e(TAG, e.getStackTrace().toString());
